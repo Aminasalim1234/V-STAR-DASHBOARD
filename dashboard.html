@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VSTAR | Review Intelligence</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                V
+            </div>
+
+            <div>
+                <div class="brand-name">
+                    VSTAR
+                </div>
+
+                <div class="brand-subtitle">
+                    REVIEW INTELLIGENCE
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="nav-section">
+
+            <div class="nav-title">
+                WORKSPACE
+            </div>
+
+
+            <a href="#overview"
+               class="nav-link active">
+
+                <span class="nav-icon">
+                    ▦
+                </span>
+
+                <span>
+                    Overview
+                </span>
+
+            </a>
+
+
+            <a href="#analytics"
+               class="nav-link">
+
+                <span class="nav-icon">
+                    ◫
+                </span>
+
+                <span>
+                    Analytics
+                </span>
+
+            </a>
+
+
+            <a href="#stores"
+               class="nav-link">
+
+                <span class="nav-icon">
+                    ⌂
+                </span>
+
+                <span>
+                    EBO Performance
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <div class="nav-section">
+
+            <div class="nav-title">
+                SYSTEM
+            </div>
+
+
+            <a href="#"
+               class="nav-link">
+
+                <span class="nav-icon">
+                    ⚙
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-footer">
+
+            <div class="system-card">
+
+                <div class="system-indicator"></div>
+
+                <div>
+
+                    <strong>
+                        System Online
+                    </strong>
+
+                    <span>
+                        Review automation active
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-version">
+                VSTAR Dashboard · v1.0
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- ================= TOPBAR ================= -->
+
+        <header class="topbar">
+
+            <div class="breadcrumb">
+
+                <span>
+                    Workspace
+                </span>
+
+                <span class="breadcrumb-separator">
+                    /
+                </span>
+
+                <strong id="breadcrumbName">
+                    Overview
+                </strong>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+
+                <div class="last-sync">
+
+                    <span class="sync-dot"></span>
+
+                    <span id="lastRefresh">
+                        Live data
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="icon-button"
+                    onclick="loadReviews()"
+                    title="Refresh">
+
+                    ↻
+
+                </button>
+
+
+                <!-- PROFILE -->
+
+                <div class="profile-wrapper">
+
+                    <button
+                        class="profile"
+                        onclick="toggleProfileMenu()">
+
+                        <div class="profile-avatar">
+                            A
+                        </div>
+
+
+                        <div class="profile-info">
+
+                            <strong>
+                                Administrator
+                            </strong>
+
+                            <span>
+                                VSTAR
+                            </span>
+
+                        </div>
+
+
+                        <span class="profile-arrow">
+                            ⌄
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="profile-menu"
+                        id="profileMenu">
+
+                        <a href="/login">
+                            Switch Account
+                        </a>
+
+                        <a href="/logout">
+                            Logout
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= OVERVIEW ================= -->
+
+        <section
+            class="page-header"
+            id="overview">
+
+            <div>
+
+                <div class="eyebrow">
+                    CUSTOMER EXPERIENCE
+                </div>
+
+                <h1>
+                    Review Intelligence
+                </h1>
+
+                <p>
+                    Monitor customer feedback, sentiment and EBO performance
+                    from one place.
+                </p>
+
+            </div>
+
+
+            <button
+                class="refresh-button"
+                onclick="loadReviews()">
+
+                <span>
+                    ↻
+                </span>
+
+                Refresh data
+
+            </button>
+
+        </section>
+
+
+        <!-- ================= KPI CARDS ================= -->
+
+        <section class="kpi-grid">
+
+
+            <!-- TOTAL -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+
+                    <span>
+                        Total Reviews
+                    </span>
+
+                    <div class="kpi-icon">
+                        ▤
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="kpi-value"
+                    id="totalReviews">
+
+                    —
+
+                </div>
+
+
+                <div class="kpi-footer">
+                    All customer reviews
+                </div>
+
+            </div>
+
+
+            <!-- AVERAGE -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+
+                    <span>
+                        Average Rating
+                    </span>
+
+                    <div class="kpi-icon rating-icon">
+                        ★
+                    </div>
+
+                </div>
+
+
+                <div class="kpi-value">
+
+                    <span id="averageRating">
+                        —
+                    </span>
+
+                    <small>
+                        / 5
+                    </small>
+
+                </div>
+
+
+                <div
+                    class="rating-mini"
+                    id="averageStars">
+
+                    ☆ ☆ ☆ ☆ ☆
+
+                </div>
+
+            </div>
+
+
+            <!-- POSITIVE -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+
+                    <span>
+                        Positive
+                    </span>
+
+                    <div class="kpi-icon positive-icon">
+                        ↗
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="kpi-value"
+                    id="positiveReviews">
+
+                    —
+
+                </div>
+
+
+                <div class="kpi-footer">
+                    Positive sentiment
+                </div>
+
+            </div>
+
+
+            <!-- NEGATIVE -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+
+                    <span>
+                        Negative
+                    </span>
+
+                    <div class="kpi-icon negative-icon">
+                        ↘
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="kpi-value"
+                    id="negativeReviews">
+
+                    —
+
+                </div>
+
+
+                <div class="kpi-footer">
+                    Requires attention
+                </div>
+
+            </div>
+
+
+            <!-- PENDING -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+
+                    <span>
+                        Pending Replies
+                    </span>
+
+                    <div class="kpi-icon pending-icon">
+                        ◷
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="kpi-value"
+                    id="pendingReviews">
+
+                    —
+
+                </div>
+
+
+                <div class="kpi-footer">
+                    Awaiting action
+                </div>
+
+            </div>
+
+
+            <!-- POSTED -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+
+                    <span>
+                        Posted Replies
+                    </span>
+
+                    <div class="kpi-icon posted-icon">
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="kpi-value"
+                    id="postedReviews">
+
+                    —
+
+                </div>
+
+
+                <div class="kpi-footer">
+                    Successfully posted
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ANALYTICS
+             ===================================================== -->
+
+        <section
+            class="content-section"
+            id="analytics">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        PERFORMANCE
+                    </div>
+
+                    <h2>
+                        Review Analytics
+                    </h2>
+
+                </div>
+
+
+                <span class="section-note">
+                    Filter reviews, sentiment and ratings together
+                </span>
+
+            </div>
+
+
+            <!-- ================= ONE COMBINED TILE ================= -->
+
+            <div
+                class="dashboard-card analytics-master"
+                id="analyticsCard">
+
+
+                <!-- ANALYTICS HEADER -->
+
+                <div class="analytics-master-header">
+
+                    <div>
+
+                        <h3>
+                            Customer Review Analysis
+                        </h3>
+
+                        <p>
+                            Explore customer feedback across all EBOs and stores.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="fullscreen-button"
+                        onclick="toggleFullscreen('analyticsCard')"
+                        title="Full screen">
+
+                        ⛶
+
+                    </button>
+
+                </div>
+
+
+                <!-- ================= FILTERS ================= -->
+
+                <div class="analytics-filters">
+
+
+                    <!-- STORE -->
+
+                    <div class="filter-group">
+
+                        <label>
+                            Store / EBO
+                        </label>
+
+                        <select
+                            id="storeFilter"
+                            onchange="applyFilters()">
+
+                            <option value="all">
+                                All EBOs / Stores
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SENTIMENT -->
+
+                    <div class="filter-group">
+
+                        <label>
+                            Sentiment
+                        </label>
+
+                        <select
+                            id="sentimentFilter"
+                            onchange="applyFilters()">
+
+                            <option value="all">
+                                All Sentiments
+                            </option>
+
+                            <option value="Positive">
+                                Positive
+                            </option>
+
+                            <option value="Neutral">
+                                Neutral
+                            </option>
+
+                            <option value="Negative">
+                                Negative
+                            </option>
+
+                            <option value="Rating Only">
+                                Rating Only
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- RATING -->
+
+                    <div class="filter-group">
+
+                        <label>
+                            Rating
+                        </label>
+
+                        <select
+                            id="ratingFilter"
+                            onchange="applyFilters()">
+
+                            <option value="all">
+                                All Ratings
+                            </option>
+
+                            <option value="5">
+                                5 ★
+                            </option>
+
+                            <option value="4">
+                                4 ★
+                            </option>
+
+                            <option value="3">
+                                3 ★
+                            </option>
+
+                            <option value="2">
+                                2 ★
+                            </option>
+
+                            <option value="1">
+                                1 ★
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CLEAR -->
+
+                    <button
+                        class="clear-filter"
+                        onclick="clearFilters()">
+
+                        Clear Filters
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     SENTIMENT + RATING
+                     ================================================= -->
+
+                <div class="analytics-visuals">
+
+
+                    <!-- ================= SENTIMENT ================= -->
+
+                    <div class="analytics-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h4>
+                                    Sentiment Analysis
+                                </h4>
+
+                                <span id="sentimentScope">
+                                    All EBOs / Stores
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="sentiment-layout">
+
+
+                            <div
+                                class="sentiment-donut"
+                                id="sentimentDonut">
+
+                                <div class="donut-center">
+
+                                    <strong
+                                        id="sentimentTotal">
+
+                                        0
+
+                                    </strong>
+
+                                    <span>
+                                        reviews
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="sentiment-legend">
+
+
+                                <!-- POSITIVE -->
+
+                                <div class="legend-item">
+
+                                    <span
+                                        class="legend-dot positive-dot">
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Positive
+                                        </strong>
+
+                                        <span
+                                            id="positiveLegend">
+                                            0%
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- NEUTRAL -->
+
+                                <div class="legend-item">
+
+                                    <span
+                                        class="legend-dot neutral-dot">
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Neutral
+                                        </strong>
+
+                                        <span
+                                            id="neutralLegend">
+                                            0%
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- NEGATIVE -->
+
+                                <div class="legend-item">
+
+                                    <span
+                                        class="legend-dot negative-dot">
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Negative
+                                        </strong>
+
+                                        <span
+                                            id="negativeLegend">
+                                            0%
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- RATING ONLY -->
+
+                                <div class="legend-item">
+
+                                    <span
+                                        class="legend-dot rating-only-dot">
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Rating Only
+                                        </strong>
+
+                                        <span
+                                            id="ratingOnlyLegend">
+                                            0%
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= RATING ================= -->
+
+                    <div class="analytics-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h4>
+                                    Rating Distribution
+                                </h4>
+
+                                <span id="ratingScope">
+                                    All EBOs / Stores
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="rating-bars"
+                            id="ratingChart">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CUSTOMER REVIEWS
+                     ================================================= -->
+
+                <div class="reviews-panel">
+
+
+                    <div class="reviews-header">
+
+                        <div>
+
+                            <h4>
+                                Customer Reviews
+                            </h4>
+
+                            <span id="reviewCountText">
+                                Showing all reviews
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="review-table-wrap">
+
+                        <table class="review-table">
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        CUSTOMER
+                                    </th>
+
+                                    <th>
+                                        RATING
+                                    </th>
+
+                                    <th>
+                                        REVIEW
+                                    </th>
+
+                                    <th>
+                                        SENTIMENT
+                                    </th>
+
+                                    <th>
+                                        REPLY STATUS
+                                    </th>
+
+                                    <th>
+                                        REVIEW REPLY
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="reviewTable">
+
+                                <tr>
+
+                                    <td
+                                        colspan="6"
+                                        class="empty-state">
+
+                                        Loading reviews...
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EBO PERFORMANCE
+             ===================================================== -->
+
+        <section
+            class="content-section"
+            id="stores">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        LOCATIONS
+                    </div>
+
+                    <h2>
+                        EBO Performance
+                    </h2>
+
+                </div>
+
+
+                <span class="section-note">
+                    Store-level customer feedback
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+
+                <div class="store-table-wrap">
+
+                    <table class="data-table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    EBO / STORE
+                                </th>
+
+                                <th>
+                                    REVIEWS
+                                </th>
+
+                                <th>
+                                    AVG. RATING
+                                </th>
+
+                                <th>
+                                    POSITIVE
+                                </th>
+
+                                <th>
+                                    NEUTRAL
+                                </th>
+
+                                <th>
+                                    NEGATIVE
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="storeTable">
+
+                            <tr>
+
+                                <td
+                                    colspan="6"
+                                    class="empty-state">
+
+                                    Loading store performance...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+
+</html>

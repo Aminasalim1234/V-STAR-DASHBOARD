@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VSTAR Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                VSTAR
+            </div>
+
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Users</a>
+                <a href="#">Reports</a>
+                <a href="#">Settings</a>
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Top Bar -->
+            <header class="topbar">
+
+                <div>
+                    <h2>Dashboard</h2>
+                    <p>Welcome back!</p>
+                </div>
+
+                <div class="profile">
+                    Admin
+                </div>
+
+            </header>
+
+
+            <!-- Statistics -->
+            <section class="stats">
+
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p>1,250</p>
+                </div>
+
+                <div class="card">
+                    <h3>Active Users</h3>
+                    <p>980</p>
+                </div>
+
+                <div class="card">
+                    <h3>Reports</h3>
+                    <p>245</p>
+                </div>
+
+                <div class="card">
+                    <h3>Pending</h3>
+                    <p>25</p>
+                </div>
+
+            </section>
+
+
+            <!-- Dashboard Content -->
+            <section class="content-card">
+
+                <h2>Recent Activity</h2>
+
+                <p>
+                    Your dashboard activity will appear here.
+                </p>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
