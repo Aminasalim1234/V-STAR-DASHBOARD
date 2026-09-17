@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.secret_key = "vstar-dashboard-secret-key"
 
 
-# ================= DATABASE =================
+
 
 db = mysql.connector.connect(
     host="localhost",
@@ -36,7 +36,7 @@ review_db = mysql.connector.connect(
 )
 
 
-# ================= HOME =================
+
 
 @app.route("/")
 def home():
@@ -47,7 +47,7 @@ def home():
     return redirect(url_for("login"))
 
 
-# ================= LOGIN =================
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -112,7 +112,7 @@ def login():
     return render_template("login.html")
 
 
-# ================= LOGOUT =================
+
 
 @app.route("/logout")
 def logout():
@@ -124,7 +124,7 @@ def logout():
     )
 
 
-# ================= FORGOT PASSWORD =================
+
 
 @app.route(
     "/forgot-password",
@@ -171,7 +171,7 @@ def forgot_password():
     )
 
 
-# ================= REGISTER =================
+
 
 @app.route(
     "/register",
@@ -261,7 +261,7 @@ def dashboard():
     )
 
 
-# ================= REVIEW API =================
+
 
 @app.route("/api/reviews")
 def api_reviews():
@@ -307,7 +307,7 @@ def api_reviews():
     }
 
 
-# ================= RUN =================
+
 
 if __name__ == "__main__":
 
