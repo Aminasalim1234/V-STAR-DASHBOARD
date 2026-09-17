@@ -1,12 +1,4 @@
-/* =========================================================
-   VSTAR DASHBOARD
-   Complete Updated Dashboard CSS
-   ========================================================= */
 
-
-/* =========================================================
-   GLOBAL
-   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -29,9 +21,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   APP LAYOUT
-   ========================================================= */
+
 
 .app-shell {
     display: flex;
@@ -39,9 +29,6 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   SIDEBAR
-   ========================================================= */
 
 .sidebar {
     width: 250px;
@@ -91,7 +78,6 @@ body.fullscreen-open {
 }
 
 
-/* NAVIGATION */
 
 .nav-section {
     margin-bottom: 30px;
@@ -139,7 +125,7 @@ body.fullscreen-open {
 }
 
 
-/* SIDEBAR FOOTER */
+
 
 .sidebar-footer {
     margin-top: auto;
@@ -184,9 +170,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   MAIN CONTENT
-   ========================================================= */
+
 
 .main-content {
     margin-left: 250px;
@@ -195,9 +179,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   TOPBAR
-   ========================================================= */
+
 
 .topbar {
     height: 72px;
@@ -241,7 +223,7 @@ body.fullscreen-open {
 }
 
 
-/* LIVE DATA */
+
 
 .last-sync {
     font-size: 11px;
@@ -261,7 +243,7 @@ body.fullscreen-open {
 }
 
 
-/* REFRESH ICON */
+
 
 .icon-button {
     border: 1px solid #ddd;
@@ -284,9 +266,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   PROFILE
-   ========================================================= */
+
 
 .profile-wrapper {
     position: relative;
@@ -341,7 +321,7 @@ body.fullscreen-open {
 }
 
 
-/* PROFILE DROPDOWN */
+
 
 .profile-menu {
     display: none;
@@ -386,9 +366,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   PAGE HEADER
-   ========================================================= */
+
 
 .page-header {
     padding: 38px 35px 25px;
@@ -443,9 +421,6 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   KPI CARDS
-   ========================================================= */
 
 .kpi-grid {
     display: grid;
@@ -528,9 +503,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   CONTENT SECTIONS
-   ========================================================= */
+
 
 .content-section {
     padding: 0 35px 45px;
@@ -556,9 +529,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   COMMON CARD
-   ========================================================= */
+
 
 .dashboard-card {
     background: white;
@@ -569,9 +540,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   COMBINED ANALYTICS TILE
-   ========================================================= */
+
 
 .analytics-master {
     padding: 22px;
@@ -596,7 +565,7 @@ body.fullscreen-open {
 }
 
 
-/* FULLSCREEN BUTTON */
+
 
 .fullscreen-button {
     border: 1px solid #ddd;
@@ -620,7 +589,7 @@ body.fullscreen-open {
 }
 
 
-/* FULLSCREEN ANALYTICS */
+
 
 .analytics-master.fullscreen {
     position: fixed;
@@ -635,9 +604,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   ANALYTICS FILTERS
-   ========================================================= */
+
 
 .analytics-filters {
     display: grid;
@@ -716,9 +683,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   ANALYTICS VISUALS
-   ========================================================= */
+
 
 .analytics-visuals {
     display: grid;
@@ -757,9 +722,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   SENTIMENT DONUT
-   ========================================================= */
+
 
 .sentiment-layout {
     display: flex;
@@ -817,7 +780,7 @@ body.fullscreen-open {
 }
 
 
-/* SENTIMENT LEGEND */
+
 
 .sentiment-legend {
     display: flex;
@@ -873,9 +836,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   RATING DISTRIBUTION
-   ========================================================= */
+
 
 .rating-bars {
     display: flex;
@@ -932,9 +893,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   CUSTOMER REVIEWS
-   ========================================================= */
+
 
 .reviews-panel {
     margin-top: 18px;
@@ -967,7 +926,6 @@ body.fullscreen-open {
 }
 
 
-/* REVIEW SCROLL */
 
 .review-table-wrap {
     max-height: 400px;
@@ -978,7 +936,6 @@ body.fullscreen-open {
 }
 
 
-/* REVIEW TABLE */
 
 .review-table {
     width: 100%;
@@ -1019,15 +976,7 @@ body.fullscreen-open {
 }
 
 
-/* 6 COLUMN WIDTHS
 
-   Customer       14%
-   Rating         9%
-   Review         32%
-   Sentiment      12%
-   Reply Status   13%
-   Review Reply   20%
-*/
 
 .review-table th:nth-child(1),
 .review-table td:nth-child(1) {
@@ -1060,7 +1009,6 @@ body.fullscreen-open {
 }
 
 
-/* CUSTOMER */
 
 .customer-name {
     font-weight: bold;
@@ -1069,7 +1017,7 @@ body.fullscreen-open {
 }
 
 
-/* REVIEW TEXT */
+
 
 .review-text {
     width: 100%;
@@ -1082,7 +1030,7 @@ body.fullscreen-open {
 }
 
 
-/* REVIEW REPLY */
+
 
 .review-reply-text {
     width: 100%;
@@ -1106,9 +1054,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   BADGES
-   ========================================================= */
+
 
 .badge {
     display: inline-block;
@@ -1155,9 +1101,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   EBO PERFORMANCE
-   ========================================================= */
+
 
 .store-table-wrap {
     overflow-x: auto;
@@ -1194,7 +1138,7 @@ body.fullscreen-open {
 }
 
 
-/* EMPTY STATE */
+
 
 .empty-state {
     text-align: center;
@@ -1205,9 +1149,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
+
 
 .review-table-wrap::-webkit-scrollbar,
 .analytics-master::-webkit-scrollbar {
@@ -1232,9 +1174,7 @@ body.fullscreen-open {
 }
 
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+
 
 @media (max-width: 1200px) {
 
