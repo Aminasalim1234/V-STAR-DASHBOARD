@@ -244,7 +244,7 @@ def register():
     )
 
 
-# ================= DASHBOARD =================
+
 
 @app.route("/dashboard")
 def dashboard():
